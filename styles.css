@@ -43,9 +43,9 @@ html, body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 352px;
-    height: 352px;
     padding: 0;
+    border: 1px solid black;
+
 }
 
 .grid-box, .colored-grid-box{
@@ -55,7 +55,7 @@ html, body {
     height: 20px;
     margin: 0;
     padding: 0;
-    border: 1px solid black;
+   
 }
 
 
