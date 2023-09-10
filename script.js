@@ -1,5 +1,6 @@
 let defaultSize = 16;
 let gridBoxWidth = 20;
+let maxCanvasSize = 500;
 
 createGrid(defaultSize);
 
@@ -29,10 +30,12 @@ function createGrid(size){
 
     // Empty grid
     gridContainer.innerHTML = "";
-    let length = size * gridBoxWidth;
 
-    gridContainer.style['height'] = length + 'px';
-    gridContainer.style['width'] = length + 'px';
+    let gridBoxWidth = maxCanvasSize / size;
+
+
+    gridContainer.style['height'] = maxCanvasSize + 'px';
+    gridContainer.style['width'] = maxCanvasSize + 'px';
 
     // Create grids
 
@@ -41,6 +44,10 @@ function createGrid(size){
         let gridBox = document.createElement('div');
         gridBox.className = 'grid-box';
         gridBox.id = "square-" + i;
+
+        gridBox.style['height'] = gridBoxWidth + 'px';
+        gridBox.style['width'] = gridBoxWidth + 'px';
+
         gridBox.addEventListener('mouseover', ()=>{
             
             gridBox.style['background-color'] = 'black';
