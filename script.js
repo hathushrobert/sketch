@@ -14,3 +14,15 @@ for (let i = 0; i < 256; i++){
     });
     gridContainer.appendChild(gridBox);
 }
+
+let canvasSizeButton = document.querySelector('.canvas-size-button');
+
+canvasSizeButton.addEventListener('click', ()=>{
+
+    let size = 0;
+    while (size < 10 || size > 100){
+
+        size = prompt(alert("Enter size of the grid (from 10 to 100)"));
+    }
+
+});
