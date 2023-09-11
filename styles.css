@@ -11,9 +11,10 @@ html, body {
     padding-top: 50px;
     padding-bottom: 50px;
     margin-bottom: 100px;
+    gap: 100px;
 }
 
-.canvas-size-button {
+.canvas-size-button, .clear-button {
     font-family: 'Courier New', Courier, monospace;
     font-size: 24px;
     background-color: bisque;
@@ -22,6 +23,7 @@ html, body {
     border: 3px solid indianred;
     border-radius: 10px;
 }
+
 
 .canvas-size-button:hover {
     border: 3px solid #bd1e19;
@@ -51,8 +53,6 @@ html, body {
 .grid-box, .colored-grid-box{
     display:flex;
     flex-wrap: wrap;
-    width: 20px;
-    height: 20px;
     margin: 0;
     padding: 0;
    

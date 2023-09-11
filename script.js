@@ -4,7 +4,9 @@ let maxCanvasSize = 500;
 
 createGrid(defaultSize);
 
+let grid = document.querySelectorAll('.grid-box');
 let canvasSizeButton = document.querySelector('.canvas-size-button');
+let clearButton = document.querySelector('.clear-button');
 
 canvasSizeButton.addEventListener('click', ()=>{
 
@@ -15,7 +17,13 @@ canvasSizeButton.addEventListener('click', ()=>{
     }
 
     createGrid(size);
+    grid = document.querySelectorAll('.grid-box');
 
+});
+
+clearButton.addEventListener('click', ()=>{
+
+    clearGrid(grid)
 });
 
 
@@ -64,17 +72,33 @@ function createGrid(size){
         gridBox.addEventListener('mouseenter', ()=>{
             
             if (mouseDown){
-                gridBox.style['background-color'] = 'black';
+                draw(gridBox);
             }
 
         });
 
         gridBox.addEventListener('click', ()=> {
-            gridBox.style['background-color'] = 'black';
+            draw(gridBox);
 
         });
         gridContainer.appendChild(gridBox);
     }
 
     
+}
+
+
+function draw(box){
+
+    let color = 'blue';
+    box.style['background-color'] = color;
+}
+
+
+function clearGrid(grid){
+
+    grid.forEach((box)=>{
+        box.style['background-color'] = 'white';
+    });
+
 }
