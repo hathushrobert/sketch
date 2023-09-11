@@ -7,6 +7,27 @@ createGrid(defaultSize);
 let grid = document.querySelectorAll('.grid-box');
 let canvasSizeButton = document.querySelector('.canvas-size-button');
 let clearButton = document.querySelector('.clear-button');
+let rainbowButton = document.querySelector('.rainbow-button');
+let mode = 'black';
+let colorIndex = 0;
+let colors = [
+    "#FF0000", // Red
+    "#FF4500", // Orange-Red
+    "#FF8C00", // Dark Orange
+    "#FFA500", // Orange
+    "#FFD700", // Gold
+    "#FFFF00", // Yellow
+    "#ADFF2F", // Green-Yellow
+    "#32CD32", // Lime Green
+    "#00FF00", // Green
+    "#008000", // Dark Green
+    "#00FFFF", // Cyan
+    "#1E90FF", // Dodger Blue
+    "#0000FF", // Blue
+    "#8A2BE2", // Blue-Violet
+    "#9932CC", // Dark Orchid
+    "#9400D3"  // Dark Violet
+];
 
 canvasSizeButton.addEventListener('click', ()=>{
 
@@ -24,6 +45,18 @@ canvasSizeButton.addEventListener('click', ()=>{
 clearButton.addEventListener('click', ()=>{
 
     clearGrid(grid)
+});
+
+rainbowButton.addEventListener('click', ()=>{
+    if (mode == 'black'){
+        mode = 'rainbow';
+        rainbowButton.className = 'rainbow-button-activated';
+    }
+    else if (mode == 'rainbow'){
+        mode = 'black';
+        rainbowButton.className = 'rainbow-button';
+    }
+
 });
 
 
@@ -90,7 +123,21 @@ function createGrid(size){
 
 function draw(box){
 
-    let color = 'blue';
+    let color;
+
+    if (mode == 'black'){
+        color = 'black';
+    }
+    else if(mode == 'rainbow'){
+
+        color = colors[colorIndex];
+        colorIndex++;
+
+        if (colorIndex > 15){
+            colorIndex = 0;
+        }
+    }
+
     box.style['background-color'] = color;
 }
 
