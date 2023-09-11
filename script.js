@@ -68,6 +68,11 @@ function createGrid(size){
             }
 
         });
+
+        gridBox.addEventListener('click', ()=> {
+            gridBox.style['background-color'] = 'black';
+
+        });
         gridContainer.appendChild(gridBox);
     }
 
