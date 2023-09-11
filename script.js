@@ -47,10 +47,25 @@ function createGrid(size){
 
         gridBox.style['height'] = gridBoxWidth + 'px';
         gridBox.style['width'] = gridBoxWidth + 'px';
+        
+        let mouseDown = false;
 
-        gridBox.addEventListener('mouseover', ()=>{
+        document.addEventListener('mousedown', (event)=>{
+            event.preventDefault();
+            mouseDown = true;
+
+        });
+
+        document.addEventListener('mouseup', ()=>{
+            mouseDown = false;
+
+        });
+
+        gridBox.addEventListener('mouseenter', ()=>{
             
-            gridBox.style['background-color'] = 'black';
+            if (mouseDown){
+                gridBox.style['background-color'] = 'black';
+            }
 
         });
         gridContainer.appendChild(gridBox);
